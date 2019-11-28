@@ -3,10 +3,7 @@ package lesson2.task1
 
 import lesson1.task1.accountInThreeYears
 import lesson1.task1.discriminant
-import kotlin.math.PI
-import kotlin.math.acos
-import kotlin.math.max
-import kotlin.math.sqrt
+import kotlin.math.*
 import kotlin.system.measureTimeMillis
 
 /**
@@ -134,7 +131,12 @@ fun whichRookThreatens(kingX: Int, kingY: Int,
  */
 fun rookOrBishopThreatens(kingX: Int, kingY: Int,
                           rookX: Int, rookY: Int,
-                          bishopX: Int, bishopY: Int): Int = TODO()
+                          bishopX: Int, bishopY: Int): Int {
+    if (kingX == rookX || kingY == rookY && abs(bishopX - kingX) != abs(bishopY - kingY)) return 1
+    if (kingX != rookX && kingY != rookY && abs(bishopX - kingX) == abs(bishopY - kingY)) return 2
+    if (kingX == rookX || kingY == rookY && abs(bishopX - kingX) == abs(bishopY - kingY)) return 3
+    return 0
+    }
 
 /**
  * Простая
